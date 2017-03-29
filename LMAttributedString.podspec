@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
 
   s.description  = <<-DESC
-                   DESC
+                   this project provide all kinds of categories for iOS developer 
 
   s.homepage     = "https://github.com/Lemon365189523/LMAttributedString"
 
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.exclude_files = "Classes/Exclude"
 
   s.public_header_files = "LMAttributedString/Classes/UIKit/UI_Categories.h"，"LMAttributedString/Classes/Foundation/Foundation_Category.h"，"LMAttributedString/Classes/**/*.h"
-  
+
   s.requires_arc = true
 
 end
