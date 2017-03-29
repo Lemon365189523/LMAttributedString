@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Lemon365189523/LMAttributedString.git", :tag => "0.0.1" }
 
   s.source_files  = LMAttributedString/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  #s.exclude_files = "Classes/Exclude"
   #s.public_header_files = "LMAttributedString/Classes/**/*.h"
 
   s.requires_arc = true
