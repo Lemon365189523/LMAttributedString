@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
 
   s.name         = "LMAttributedString"
   s.version      = "0.0.1"
-  s.summary      = " The summary is can meaningful."
+  s.summary      = "一个函数式的富文本库"
   s.description  = <<-DESC
                       this project provide all kinds of categories for iOS developer 
 
