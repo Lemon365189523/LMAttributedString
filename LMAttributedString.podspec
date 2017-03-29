@@ -10,25 +10,20 @@ Pod::Spec.new do |s|
   s.summary      = "A short description of LMAttributedString."
 
 
-  s.description  = <<-DESC
-                   this project provide all kinds of categories for iOS developer 
 
   s.homepage     = "https://github.com/Lemon365189523/LMAttributedString"
 
 
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
 
 
   s.author             = { "KADFWJ" => "930135305@qq.com" }
 
-  s.source       = { :git => "https://github.com/Lemon365189523/LMAttributedString", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/Lemon365189523/LMAttributedString.git", :tag => "0.0.1" }
 
-  s.source_files  = "Classes", "LMAttributedString/Classes/**/*.{h,m}"
-
-  s.exclude_files = "Classes/Exclude"
-
-  s.public_header_files = "LMAttributedString/Classes/UIKit/UI_Categories.h"，"LMAttributedString/Classes/Foundation/Foundation_Category.h"，"LMAttributedString/Classes/**/*.h"
+  s.source_files  = LMAttributedString/*.{h,m}"
 
   s.requires_arc = true
-
+  s.ios.deployment_target = '7.0'
+  #s.ios.deployment_target = '8.0'
 end
