@@ -13,6 +13,7 @@
 		F70CFD3E1E8B50E0002CF2E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70CFD3C1E8B50E0002CF2E6 /* Main.storyboard */; };
 		F70CFD401E8B50E0002CF2E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70CFD3F1E8B50E0002CF2E6 /* Assets.xcassets */; };
 		F70CFD431E8B50E0002CF2E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70CFD411E8B50E0002CF2E6 /* LaunchScreen.storyboard */; };
+		F70CFD4D1E8B51A8002CF2E6 /* LMAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = F70CFD4C1E8B51A8002CF2E6 /* LMAttributedString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		F70CFD3F1E8B50E0002CF2E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F70CFD421E8B50E0002CF2E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F70CFD441E8B50E0002CF2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F70CFD4B1E8B51A8002CF2E6 /* LMAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAttributedString.h; sourceTree = "<group>"; };
+		F70CFD4C1E8B51A8002CF2E6 /* LMAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAttributedString.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		F70CFD321E8B50DF002CF2E6 /* LMAttributedString */ = {
 			isa = PBXGroup;
 			children = (
+				F70CFD4A1E8B51A8002CF2E6 /* Classes */,
 				F70CFD361E8B50E0002CF2E6 /* AppDelegate.h */,
 				F70CFD371E8B50E0002CF2E6 /* AppDelegate.m */,
 				F70CFD391E8B50E0002CF2E6 /* ViewController.h */,
@@ -77,6 +81,15 @@
 				F70CFD341E8B50E0002CF2E6 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F70CFD4A1E8B51A8002CF2E6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F70CFD4B1E8B51A8002CF2E6 /* LMAttributedString.h */,
+				F70CFD4C1E8B51A8002CF2E6 /* LMAttributedString.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +166,7 @@
 				F70CFD3B1E8B50E0002CF2E6 /* ViewController.m in Sources */,
 				F70CFD381E8B50E0002CF2E6 /* AppDelegate.m in Sources */,
 				F70CFD351E8B50E0002CF2E6 /* main.m in Sources */,
+				F70CFD4D1E8B51A8002CF2E6 /* LMAttributedString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
