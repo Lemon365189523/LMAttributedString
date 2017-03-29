@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "KADFWJ" => "930135305@qq.com" }
 
-  s.source       = { :git => "https://github.com/Lemon365189523/LMAttributedString.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/Lemon365189523/LMAttributedString.git", :tag => "0.0.2" }
 
   s.source_files  = "Classes","LMAttributedString/Classes/*.{h,m}"
 
