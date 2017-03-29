@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LMAttributeWorker.h"
+
+@class LMAttributeWorker;
+
+typedef void(^LMSetTypeBlock)( LMAttributeWorker *worker);
 
 @interface LMAttributedString : NSObject
+
+@property (nonatomic, readonly, strong) NSMutableAttributedString *string;
+
++(instancetype) creatAttrubutedString;
+
+-(LMAttributedString *)setAttributes:(LMSetTypeBlock) block;
+
+-(LMAttributedString *) appendAttributes:(LMSetTypeBlock) block;
 
 @end
