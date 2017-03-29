@@ -35,6 +35,18 @@
         [worker setStrokeColor:[UIColor purpleColor]];
         [worker setUnderlineStyleHeight:@(2)];
         [worker setStrokeWidth:@(1)];
+        [worker setShadow:CGSizeMake(0, 1) andRadius:5 andColor:[UIColor greenColor]];
+        [worker setTextEffect:NSTextEffectLetterpressStyle];
+    }];
+    
+    LMAttributedString *attribute = [[LMAttributedString creatAttrubutedString] setAttributes:^(LMAttributeWorker *worker) {
+        [worker setString:@"www.baidi.com"];
+//        [worker setLink:@"www.baidu.com"];
+        [worker setFont:[UIFont systemFontOfSize:15]];
+        [worker setBaselineOffset:-10];
+        [worker setObliqueness:0.5];
+        [worker setExpansion:-0.5];
+        [worker setImage:@"lemon" andBounds:CGRectMake(0, 0, 30, 30)];
     }];
     
     
@@ -49,7 +61,7 @@
     label2.backgroundColor = [UIColor groupTableViewBackgroundColor];
     label2.numberOfLines = 0;
     label2.frame = CGRectMake(30, 280, 280, 200);
-    label2.attributedText = string.string;
+    label2.attributedText = attribute.string;
     [self.view addSubview:label2];
 }
 
