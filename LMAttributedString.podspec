@@ -13,9 +13,10 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/Lemon365189523/LMAttributedString"
 
-
   s.license      = "MIT"
+  s.license      = { :type => "MIT"， :file => "LICENSE" }
 
+  s.platform     = :ios
 
   s.author             = { "KADFWJ" => "930135305@qq.com" }
 
