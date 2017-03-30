@@ -15,7 +15,7 @@ pod 'LMAttributedString'
 操作完毕把`LMAttributedString`对象里的`string`属性设置到UIlable或其他控件中`label.attributedText = attribute.string;`
 
 效果图
-![效果图01](https://github.com/Lemon365189523/LMAttributedString/效果图01.png)
+![效果图01](https://github.com/Lemon365189523/LMAttributedString/blob/master/效果图01.png)
 
 
 
@@ -45,7 +45,7 @@ LMAttributedString *attribute = [[[[LMAttributedString creatAttrubutedString] se
 ```
 
 
-![效果图02](https://github.com/Lemon365189523/LMAttributedString/效果图02.png)
+![效果图02](https://github.com/Lemon365189523/LMAttributedString/blob/master/效果图02.png)
 
 
 ```
