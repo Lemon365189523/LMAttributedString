@@ -6,8 +6,8 @@ Pod::Spec.new do |s|
 
 
   s.name         = "LMAttributedString"
-  s.version      = "0.0.3"
-  s.summary      = "一个函数式的富文本库"
+  s.version      = "0.0.4"
+  s.summary      = "一个函数式编辑富文本库"
   s.description  = <<-DESC
                       this project provide all kinds of categories for iOS developer 
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "KADFWJ" => "930135305@qq.com" }
 
-  s.source       = { :git => "https://github.com/Lemon365189523/LMAttributedString.git", :tag => "0.0.3" }
+  s.source       = { :git => "https://github.com/Lemon365189523/LMAttributedString.git", :tag => "0.0.4" }
 
   s.source_files  = "Classes","LMAttributedString/Classes/*.{h,m}"
 

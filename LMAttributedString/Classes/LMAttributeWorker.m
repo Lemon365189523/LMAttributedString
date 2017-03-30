@@ -16,15 +16,19 @@
 
 @property (nonatomic, assign) NSInteger setTextCount;
 
+@property (nonatomic, strong) NSMutableParagraphStyle *paragraphStyle;
+
 @end
 
 @implementation LMAttributeWorker
+
 
 -(instancetype)initWithAttributedString:(id)string{
     if (self = [super init]) {
         if ([string isKindOfClass:[LMAttributedString class]]) {
             _attributedString = string;
             _setTextCount = 0;
+            _paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         }
     }
     return self;
@@ -150,28 +154,32 @@
 
 -(void)setlineSpacing:(CGFloat)lineSpacing{
     LMNeedSetStringAssert
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.lineSpacing = lineSpacing;
-    [self.attributedString.string addAttribute:NSParagraphStyleAttributeName value:style range:[self stringRange]];
+    self.paragraphStyle.lineSpacing = lineSpacing;
+    [self setParagraphStyle];
 }
 
 -(void)setParagraphStyle:(NSMutableParagraphStyle *)style{
     LMNeedSetStringAssert
-    [self.attributedString.string addAttribute:NSParagraphStyleAttributeName value:style range:[self stringRange]];
+    self.paragraphStyle = style;
+    [self setParagraphStyle];
 }
 
 -(void)setTextAlignment:(NSTextAlignment)alignmemt{
     LMNeedSetStringAssert
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.alignment = alignmemt;
-    [self.attributedString.string addAttribute:NSParagraphStyleAttributeName value:style range:[self stringRange]];
+    
+    self.paragraphStyle.alignment = alignmemt;
+    [self setParagraphStyle];
 }
 
 -(void)setlineBreakMode:(NSLineBreakMode)lineBreakMode{
     LMNeedSetStringAssert
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.lineBreakMode = lineBreakMode;
-    [self.attributedString.string addAttribute:NSParagraphStyleAttributeName value:style range:[self stringRange]];
+
+    self.paragraphStyle.lineBreakMode = lineBreakMode;
+    [self setParagraphStyle];
+}
+
+-(void) setParagraphStyle{
+    [self.attributedString.string addAttribute:NSParagraphStyleAttributeName value:self.paragraphStyle range:[self stringRange]];
 }
 
 -(NSRange ) stringRange{
