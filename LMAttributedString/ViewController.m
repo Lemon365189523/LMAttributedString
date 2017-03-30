@@ -20,34 +20,34 @@
     LMAttributedString *string = [[[[LMAttributedString creatAttrubutedString] setAttributes:^(LMAttributeWorker *worker) {
         [worker setString:@"flush"];
         [worker setFont:[UIFont fontWithName:@"futura" size:20.0]];
-        [worker setForegroundColor:[UIColor redColor]];
+        [worker setTextColor:[UIColor redColor]];
         [worker setBackgroundColor:[UIColor greenColor]];
-        [worker setLigature:@(2)];
+        [worker setLigature:LMOtherLigature];
     }]appendAttributes:^(LMAttributeWorker *worker) {
         [worker setString:@".flush"];
         [worker setFont:[UIFont fontWithName: @"futura" size: 30]];
-        [worker setForegroundColor:[UIColor blueColor]];
-        [worker setLigature:@(0)];
-        [worker setSpace:@(3)];
-        [worker setStrikethroughHeight:@(4)];
+        [worker setTextColor:[UIColor blueColor]];
+        [worker setLigature:LMTextNotLigature];
+        [worker setSpace:3];
     }] appendAttributes:^(LMAttributeWorker *worker) {
         [worker setString:@"..adidas"];
-        [worker setStrokeColor:[UIColor purpleColor]];
-        [worker setUnderlineStyleHeight:@(2)];
-        [worker setStrokeWidth:@(1)];
+
         [worker setShadow:CGSizeMake(0, 1) andRadius:5 andColor:[UIColor greenColor]];
-        [worker setTextEffect:NSTextEffectLetterpressStyle];
+//        [worker setTextEffect:NSTextEffectLetterpressStyle];
     }];
     
     LMAttributedString *attribute = [[LMAttributedString creatAttrubutedString] setAttributes:^(LMAttributeWorker *worker) {
         [worker setString:@"www.baidi.com"];
-//        [worker setLink:@"www.baidu.com"];
+        [worker setLink:@"www.baidu.com"];
         [worker setFont:[UIFont systemFontOfSize:15]];
         [worker setBaselineOffset:-10];
         [worker setObliqueness:0.5];
         [worker setExpansion:-0.5];
         [worker setImage:@"lemon" andBounds:CGRectMake(0, 0, 30, 30)];
+
     }];
+    
+    
     
     
     UILabel *label = [[UILabel alloc] init];

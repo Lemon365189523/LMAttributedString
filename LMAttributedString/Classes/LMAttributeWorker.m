@@ -14,6 +14,8 @@
 
 @property (nonatomic, weak) LMAttributedString *attributedString;
 
+@property (nonatomic, assign) NSInteger setTextCount;
+
 @end
 
 @implementation LMAttributeWorker
@@ -22,6 +24,7 @@
     if (self = [super init]) {
         if ([string isKindOfClass:[LMAttributedString class]]) {
             _attributedString = string;
+            _setTextCount = 0;
         }
     }
     return self;
@@ -29,8 +32,12 @@
 
 
 -(void)setString:(NSString *)string{
+    if (self.setTextCount > 0) {
+        return;
+    }
     NSMutableAttributedString *abString = [[NSMutableAttributedString alloc] initWithString:string];
     [self.attributedString.string appendAttributedString:abString];
+    self.setTextCount++;
 }
 
 -(void)setFont:(UIFont *)font{
@@ -39,7 +46,7 @@
 }
 
 
--(void)setForegroundColor:(UIColor *)color{
+-(void)setTextColor:(UIColor *)color{
     LMNeedSetStringAssert
     [self.attributedString.string addAttribute:NSForegroundColorAttributeName value:color range:[self stringRange]];
 }
@@ -50,40 +57,38 @@
 }
 
 
--(void)setLigature:(NSNumber *)ligature{
+-(void)setLigature:(LMTextLigatureType )ligature{
     LMNeedSetStringAssert
-    [self.attributedString.string addAttribute:NSLigatureAttributeName value:ligature range:[self stringRange]];
+    [self.attributedString.string addAttribute:NSLigatureAttributeName value:@(ligature) range:[self stringRange]];
 }
 
--(void)setSpace:(NSNumber *)space{
+-(void)setSpace:(CGFloat)space{
     LMNeedSetStringAssert
-    [self.attributedString.string addAttribute:NSKernAttributeName value:space range:[self stringRange]];
+    [self.attributedString.string addAttribute:NSKernAttributeName value:@(space) range:[self stringRange]];
 }
 
--(void)setStrikethroughHeight:(NSNumber *)height{
+-(void)setStrokeWidth:(CGFloat)strokeWidth andColor:(UIColor *)strokeColor{
     LMNeedSetStringAssert
-    [self.attributedString.string addAttribute:NSStrikethroughStyleAttributeName value:height range:[self stringRange]];
+    [self.attributedString.string addAttribute:NSStrokeWidthAttributeName value:@(strokeWidth) range:[self stringRange]];
+    if (strokeColor) {
+        [self.attributedString.string addAttribute:NSStrokeColorAttributeName value:strokeColor range:[self stringRange]];
+    }
 }
 
--(void)setUnderlineStyleHeight:(NSNumber *)hetght{
+-(void)setStrikethroughStyle:(NSUnderlineStyle)style andColor:(UIColor *)color{
     LMNeedSetStringAssert
-    [self.attributedString.string addAttribute:NSUnderlineStyleAttributeName value:hetght range:[self stringRange]];
+    [self.attributedString.string addAttribute:NSStrikethroughStyleAttributeName value:@(style) range:[self stringRange]];
+    if (color) {
+        [self.attributedString.string addAttribute:NSStrikethroughColorAttributeName value:color range:[self stringRange]];
+    }
 }
 
--(void)setUnderlineColor:(UIColor *)color{
+-(void)setUnderlineStyle:(NSUnderlineStyle)style andColor:(UIColor *)color{
     LMNeedSetStringAssert
-    [self.attributedString.string addAttribute:NSUnderlineColorAttributeName value:color range:[self stringRange]];
-}
-
--(void)setStrokeColor:(UIColor *)strokeColor{
-    LMNeedSetStringAssert
-    [self.attributedString.string addAttribute:NSStrokeColorAttributeName value:strokeColor range:[self stringRange]];
-}
-
--(void)setStrokeWidth:(NSNumber *)strokeWidth{
-    LMNeedSetStringAssert
-    [self.attributedString.string addAttribute:NSStrokeWidthAttributeName value:strokeWidth range:[self stringRange]];
-    
+    [self.attributedString.string addAttribute:NSUnderlineStyleAttributeName value:@(style) range:[self stringRange]];
+    if (color) {
+        [self.attributedString.string addAttribute:NSUnderlineColorAttributeName value:color range:[self stringRange]];
+    }
 }
 
 -(void) setShadow:(CGSize )shadowOffset andRadius:(CGFloat)shadowBlurRadius andColor:(UIColor *)shadowColor {
@@ -92,7 +97,9 @@
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowOffset = shadowOffset;
     shadow.shadowBlurRadius =  shadowBlurRadius;
-    shadow.shadowColor = shadowColor;
+    if (shadowColor) {
+        shadow.shadowColor = shadowColor;
+    }
     [self.attributedString.string addAttribute:NSShadowAttributeName value:shadow range:[self stringRange]];
 }
 
@@ -107,7 +114,7 @@
     LMNeedSetStringAssert
     [self.attributedString.string addAttribute:NSLinkAttributeName value:[NSURL URLWithString:link] range:[self stringRange]];
 }
-
+///dddddd
 -(void) setBaselineOffset:(NSInteger )offset{
     LMNeedSetStringAssert
     [self.attributedString.string addAttribute:NSBaselineOffsetAttributeName value:@(offset) range:[self stringRange]];
@@ -123,14 +130,14 @@
     [self.attributedString.string addAttribute:NSExpansionAttributeName value:@(expansion) range:[self stringRange]];
 }
 
--(void)settextComposition:(LMTextCompositionType)type{
+-(void)setTextComposition:(LMTextCompositionType)type{
     LMNeedSetStringAssert
     [self.attributedString.string addAttribute:NSVerticalGlyphFormAttributeName value:@(type) range:[self stringRange]];
 }
 
 -(void) setImage:(NSString *)imageName andBounds:(CGRect) bounds{
     //NSTextAttachment 对象
-    LMNeedSetStringAssert
+//    LMNeedSetStringAssert
     NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
     
     textAttachment.image = [UIImage imageNamed:imageName];  //设置图片源
@@ -141,6 +148,31 @@
     [self.attributedString.string appendAttributedString:imageStr];
 }
 
+-(void)setlineSpacing:(CGFloat)lineSpacing{
+    LMNeedSetStringAssert
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = lineSpacing;
+    [self.attributedString.string addAttribute:NSParagraphStyleAttributeName value:style range:[self stringRange]];
+}
+
+-(void)setParagraphStyle:(NSMutableParagraphStyle *)style{
+    LMNeedSetStringAssert
+    [self.attributedString.string addAttribute:NSParagraphStyleAttributeName value:style range:[self stringRange]];
+}
+
+-(void)setTextAlignment:(NSTextAlignment)alignmemt{
+    LMNeedSetStringAssert
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.alignment = alignmemt;
+    [self.attributedString.string addAttribute:NSParagraphStyleAttributeName value:style range:[self stringRange]];
+}
+
+-(void)setlineBreakMode:(NSLineBreakMode)lineBreakMode{
+    LMNeedSetStringAssert
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineBreakMode = lineBreakMode;
+    [self.attributedString.string addAttribute:NSParagraphStyleAttributeName value:style range:[self stringRange]];
+}
 
 -(NSRange ) stringRange{
     return NSMakeRange(0, self.attributedString.string.length);
