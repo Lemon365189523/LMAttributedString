@@ -19,7 +19,7 @@ pod 'LMAttributedString'
 
 
 
-```
+```Objective-C
 LMAttributedString *attribute = [[[[LMAttributedString creatAttrubutedString] setAttributes:^(LMAttributeWorker *worker) {
    [worker setString:@"my "];
    [worker setFont:[UIFont fontWithName:@"futura" size:20.0]];
@@ -48,7 +48,7 @@ LMAttributedString *attribute = [[[[LMAttributedString creatAttrubutedString] se
 ![效果图02](https://github.com/Lemon365189523/LMAttributedString/blob/master/效果图02.png)
 
 
-```
+```Objective-C
 LMAttributedString *attribute = [[LMAttributedString creatAttrubutedString] setAttributes:^(LMAttributeWorker *worker) {
    [worker setString:@"写这个库的原因是在学习ReactiveCocoa时候，理解了那么一定点的关于函数式编程的思想而写的。"];
    [worker setlineSpacing:4];
