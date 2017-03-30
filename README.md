@@ -62,5 +62,6 @@ LMAttributedString *attribute = [[LMAttributedString creatAttrubutedString] setA
 
 该库是刚刚开始写，很多地方需要优化，希望大家能给点意见，和那些地方不好也希望提点。
 
+[这是我的博客！](lemonfan.cn)
 
 
