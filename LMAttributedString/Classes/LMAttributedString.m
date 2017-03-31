@@ -40,6 +40,7 @@
 
 
 -(LMAttributedString *)appendAttributes:(LMSetTypeBlock)block{
+    NSCParameterAssert(block != NULL);
     LMAttributedString *attributedString = [LMAttributedString creatAttrubutedString];
     LMAttributeWorker *worker = [[LMAttributeWorker alloc] initWithAttributedString:attributedString];
     block(worker);
