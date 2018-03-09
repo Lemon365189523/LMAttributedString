@@ -40,24 +40,35 @@
 //        [worker setImage:@"lemon" andBounds:CGRectMake(0, 0, 30, 30)];
 //    }];
     
-    LMAttributedString *attribute = [[LMAttributedString creatAttrubutedString] setAttributes:^(LMAttributeWorker *worker) {
-        [worker setString:@"写这个库的原因是在学习ReactiveCocoa时候，理解了那么一定点的关于函数式编程的思想而写的。"];
-        [worker setlineSpacing:4];
-        [worker setlineBreakMode:NSLineBreakByCharWrapping];
-        [worker setTextAlignment:NSTextAlignmentRight];
-        [worker setUnderlineStyle:NSUnderlineStyleThick andColor:[UIColor whiteColor]];
-        [worker setStrokeWidth:3 andColor:[UIColor purpleColor]];
-        
+//    LMAttributedString *attribute = [[LMAttributedString creatAttrubutedString] setAttributes:^(LMAttributeWorker *worker) {
+//        [worker setString:@"写这个库的原因是在学习ReactiveCocoa时候，理解了那么一定点的关于函数式编程的思想而写的。"];
+//        [worker setlineSpacing:4];
+//        [worker setlineBreakMode:NSLineBreakByCharWrapping];
+//        [worker setTextAlignment:NSTextAlignmentRight];
+//        [worker setUnderlineStyle:NSUnderlineStyleThick andColor:[UIColor whiteColor]];
+//        [worker setStrokeWidth:3 andColor:[UIColor purpleColor]];
+//
+//    }];
+
+    LMAttributedString *attribute = [[[LMAttributedString creatAttrubutedString] setAttributes:^(LMAttributeWorker *worker) {
+        [worker setString:@""];
+        [worker setImage:@"lemon" andBounds:CGRectMake(0, 0, 50, 50)];
+        [worker setTextAlignment:NSTextAlignmentLeft];
+    }] appendAttributes:^(LMAttributeWorker *worker) {
+        [worker setString:@"sssss"];
+        [worker setBaselineOffset:15];
     }];
-    
     
     
     
     UILabel *label = [[UILabel alloc] init];
     label.numberOfLines = 0;
     label.backgroundColor = [UIColor lightGrayColor];
-    label.frame = CGRectMake(30, 60, 280, 200);
+    label.frame = CGRectMake(30, 60,100 , 50);
     label.attributedText = attribute.string;
+    [label.layer setBorderColor:[[UIColor redColor] CGColor]];  //父类layer属性，边框线的颜色
+    [label.layer setBorderWidth:1.0];                           //父类layer属性，边框线宽
+    [label.layer setCornerRadius:10.0]; 
     [self.view addSubview:label];
     
 //    UILabel *label2 = [[UILabel alloc] init];

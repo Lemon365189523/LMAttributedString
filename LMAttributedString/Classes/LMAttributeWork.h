@@ -70,7 +70,7 @@ typedef enum : NSUInteger {
  
  @param style NSMutableParagraphStyle 自定义段落对象
  */
--(void) setParagraphStyle:(nonnull NSMutableParagraphStyle *) style;
+-(void) setCustomParagraphStyle:(nonnull NSMutableParagraphStyle *) style;
 
 NS_ASSUME_NONNULL_BEGIN
 

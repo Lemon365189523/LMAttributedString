@@ -11,6 +11,9 @@
 
 @interface LMAttributeWorker : NSObject<LMAttributeWork>
 
+
+@property (nonatomic, strong, readonly) NSMutableParagraphStyle *paragraphStyle;
+
 -(instancetype) initWithAttributedString:(id) string;
 
 @end

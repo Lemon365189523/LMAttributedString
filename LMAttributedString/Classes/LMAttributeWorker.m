@@ -158,9 +158,9 @@
     [self setParagraphStyle];
 }
 
--(void)setParagraphStyle:(NSMutableParagraphStyle *)style{
+-(void)setCustomParagraphStyle:(NSMutableParagraphStyle *)style{
     LMNeedSetStringAssert
-    self.paragraphStyle = style;
+    self.paragraphStyle = [style copy];
     [self setParagraphStyle];
 }
 
